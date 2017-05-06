@@ -1,0 +1,42 @@
+version: '2'
+services:
+  redis:
+    image: redis:3.0.7
+    ports:
+      - 6379
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secretpass
+  php5.6:
+    build: ./php5.6
+    ports:
+      - 8001:80
+    volumes:
+      - ./php5.6/src:/var/www/html
+  php7.1:
+    build: ./php7.1
+    ports:
+      - 8002:80
+    volumes:
+      - ./php7.1/src:/var/www/html
+
+  site1:
+    image: tianon/true #minimal image
+    depends_on:
+      - php5.6
+      - mysql
+  site2:
+    image: tianon/true #minimal image
+    depends_on:
+      - php7.1
+      - mysql
+  site3:
+    image: tianon/true #minimal image
+    depends_on:
+      - php7.1
+      - redis
