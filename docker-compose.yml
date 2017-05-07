@@ -32,8 +32,7 @@ services:
     volumes:
       - ./php5.6/src:/var/www/html
     environment:
-      - VIRTUAL_HOST=php5.6.dev
-      
+      - VIRTUAL_HOST=site1.dev
   php7.1:
     build: ./php7.1
     ports:
@@ -41,4 +40,24 @@ services:
     volumes:
       - ./php7.1/src:/var/www/html
     environment:
-      - VIRTUAL_HOST=php7.1.dev
+      - VIRTUAL_HOST=site2.dev,site3.dev
+      
+  # Sites
+  site1:
+    image: tianon/true #minimal image
+    depends_on:
+      - nginx-proxy
+      - php5.6
+      - mysql
+  site2:
+    image: tianon/true #minimal image
+    depends_on:
+      - nginx-proxy
+      - php7.1
+      - mysql
+  site3:
+    image: tianon/true #minimal image
+    depends_on:
+      - nginx-proxy
+      - php7.1
+      - redis
