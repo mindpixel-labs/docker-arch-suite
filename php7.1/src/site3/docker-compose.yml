@@ -1,5 +1,9 @@
 version: '2'
 services:
+  nginx-proxy:
+    extends:
+      file: ../../../common-services.yml
+      service: nginx-proxy
   redis:
     extends:
       file: ../../../common-services.yml
@@ -12,5 +16,6 @@ services:
   site3:
     image: tianon/true #minimal image
     depends_on:
+      - nginx-proxy
       - php7.1
       - redis
