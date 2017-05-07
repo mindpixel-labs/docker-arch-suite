@@ -24,19 +24,3 @@ services:
       - 8002:80
     volumes:
       - ./php7.1/src:/var/www/html
-
-  site1:
-    image: tianon/true #minimal image
-    depends_on:
-      - php5.6
-      - mysql
-  site2:
-    image: tianon/true #minimal image
-    depends_on:
-      - php7.1
-      - mysql
-  site3:
-    image: tianon/true #minimal image
-    depends_on:
-      - php7.1
-      - redis

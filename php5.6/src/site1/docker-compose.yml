@@ -1,0 +1,16 @@
+version: '2'
+services:
+  mysql:
+    extends:
+        file: ../../../common-services.yml
+        service: mysql
+  php5.6:
+    extends:
+        file: ../../../common-services.yml
+        service: php5.6
+
+  site1:
+    image: tianon/true #minimal image
+    depends_on:
+      - php5.6
+      - mysql

@@ -1,10 +1,15 @@
 # docker-multiple-sites
-Running:
 
-    docker-compose up --build
+Running all sites:
 
-Now you can access following sites:
+    $ docker-compose -f common-services.yml up
 
- - site 1 -> localhost:8001/site
+Running single site:
+
+    php5.6/src/site1$ docker-compose up
+
+Accessing sites:
+
+ - site 1 -> localhost:8001/site1
  - site 2 -> localhost:8001/site2
  - site 3 -> localhost:8002/site3
