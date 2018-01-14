@@ -6,5 +6,5 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(16) NOT NULL AUTO_INCREMENT,
   `username` varchar(64) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
