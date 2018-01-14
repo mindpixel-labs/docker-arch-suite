@@ -5,6 +5,10 @@ EXPOSE 80
 RUN a2enmod rewrite \
     && docker-php-ext-install pdo pdo_mysql
 
+# Fix permissions
+RUN usermod -u 1000 www-data
+RUN usermod -G staff www-data
+
 ADD ./sites-available /etc/apache2/sites-available/
 
 COPY a2ensites.sh /a2ensites.sh

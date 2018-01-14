@@ -1,9 +1,13 @@
 FROM php:5.6-apache
 
+EXPOSE 80
+
 RUN a2enmod rewrite \
     && docker-php-ext-install pdo pdo_mysql mysql
-    
-EXPOSE 80
+
+# Fix permissions
+RUN usermod -u 1000 www-data
+RUN usermod -G staff www-data
 
 ADD ./sites-available /etc/apache2/sites-available/
 
