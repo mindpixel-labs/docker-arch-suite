@@ -12,6 +12,7 @@ services:
       - 3306
     volumes:
       - /var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d
     environment:
       - MYSQL_ROOT_PASSWORD=secretpass
       - VIRTUAL_HOST=mysql.dev
