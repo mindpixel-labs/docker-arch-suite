@@ -35,21 +35,21 @@ services:
       - MYSQL_ROOT_PASSWORD=secretpass
       - VIRTUAL_HOST=mysql.dev
       - NETWORK_ACCESS=internal
-  php5.6:
-    build: ./php5.6
+  php5:
+    build: ./php5
     ports:
       - 8001:80
     volumes:
-      - ./php5.6/src:/var/www/html
+      - ./php5/src:/var/www/html
     environment:
       - VIRTUAL_HOST=site1.dev
       - NETWORK_ACCESS=internal
-  php7.1:
-    build: ./php7.1
+  php7:
+    build: ./php7
     ports:
       - 8002:80
     volumes:
-      - ./php7.1/src:/var/www/html
+      - ./php7/src:/var/www/html
     environment:
       - VIRTUAL_HOST=site2.dev,site3.dev
       - NETWORK_ACCESS=internal

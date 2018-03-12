@@ -1,6 +1,4 @@
-FROM php:7.1-apache
-
-EXPOSE 80
+FROM php:7-apache
 
 RUN a2enmod rewrite \
     && docker-php-ext-install pdo pdo_mysql
@@ -9,10 +7,13 @@ RUN a2enmod rewrite \
 RUN usermod -u 1000 www-data
 RUN usermod -G staff www-data
 
+EXPOSE 80
+
 ADD ./sites-available /etc/apache2/sites-available/
 
+# Enable all sites on every run
 COPY a2ensites.sh /a2ensites.sh
-RUN /a2ensites.sh && rm /a2ensites.sh
+RUN rm /etc/apache2/sites-enabled/* && /a2ensites.sh
 
 # Install composer
 COPY install-composer.sh /install-composer.sh
@@ -31,4 +32,3 @@ RUN a2enconf servername
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 EXPOSE 9000
-

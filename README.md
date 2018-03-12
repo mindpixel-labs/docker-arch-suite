@@ -23,15 +23,15 @@ Now you have following options:
 
 - Start site 1
 
-      $ docker-compose -f docker-common.yml -f php5.6/src/site1/docker-compose.yml up site1
+      $ docker-compose -f docker-common.yml -f php5/src/site1/docker-compose.yml up site1
 
 - Start site 2
 
-      $ docker-compose -f docker-common.yml -f php7.1/src/site2/docker-compose.yml up site2
+      $ docker-compose -f docker-common.yml -f php7/src/site2/docker-compose.yml up site2
 
 - Start site 3
 
-      $ docker-compose -f docker-common.yml -f php7.1/src/site3/docker-compose.yml up site3
+      $ docker-compose -f docker-common.yml -f php7/src/site3/docker-compose.yml up site3
 
 ---
 

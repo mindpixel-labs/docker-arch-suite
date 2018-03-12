@@ -1,18 +1,19 @@
-FROM php:5.6-apache
-
-EXPOSE 80
+FROM php:5-apache
 
 RUN a2enmod rewrite \
-    && docker-php-ext-install pdo pdo_mysql mysql
+    && docker-php-ext-install pdo pdo_mysql mysql mysqli
 
 # Fix permissions
 RUN usermod -u 1000 www-data
 RUN usermod -G staff www-data
 
+EXPOSE 80
+
 ADD ./sites-available /etc/apache2/sites-available/
 
+# Enable all sites
 COPY a2ensites.sh /a2ensites.sh
-RUN /a2ensites.sh && rm /a2ensites.sh
+RUN rm /etc/apache2/sites-enabled/* && /a2ensites.sh
 
 # Install composer
 COPY install-composer.sh /install-composer.sh

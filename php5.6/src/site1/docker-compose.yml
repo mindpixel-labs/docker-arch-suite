@@ -1,7 +1,0 @@
-version: '2'
-services:
-  site1:
-    image: tianon/true #minimal image
-    depends_on:
-      - php5.6
-      - mysql
