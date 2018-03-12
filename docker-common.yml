@@ -5,7 +5,7 @@ services:
     ports:
       - 6380:6379
     environment:
-      - VIRTUAL_HOST=redis.dev
+      - VIRTUAL_HOST=redis.test
       - NETWORK_ACCESS=internal
   mongodb:
     image: mongo:3.6-jessie

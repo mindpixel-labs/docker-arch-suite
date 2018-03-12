@@ -6,9 +6,9 @@ Containers are under development and soon will be based only on Arch Linux.
 
 Firstly add following lines to /etc/hosts for friendly urls
 
-    127.0.0.1   site1.dev
-    127.0.0.1   site2.dev
-    127.0.0.1   site3.dev
+    127.0.0.1   site1.test
+    127.0.0.1   site2.test
+    127.0.0.1   site3.test
 
 Then create network and start proxy service:
 
@@ -37,7 +37,7 @@ Now you have following options:
 
 Sites are accessible at following urls:
 
- - site 1 -> http://site1.dev
- - site 2 -> http://site2.dev
- - site 3 -> http://site3.dev
+ - site 1 -> http://site1.test
+ - site 2 -> http://site2.test
+ - site 3 -> http://site3.test
 
