@@ -22,19 +22,6 @@ services:
     environment:
       - VIRTUAL_HOST=ldap.localhost
       - NETWORK_ACCESS=internal
-  mysql:
-    image: mysql:5.7
-    ports:
-      - 3305:3306
-    volumes:
-      - ./mysql/data/persistent:/var/lib/mysql
-      - ./mysql/data/init:/docker-entrypoint-initdb.d
-      - ./mysql/conf.d:/etc/mysql/conf.d
-      - ./mysql/log:/var/log/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=secretpass
-      - VIRTUAL_HOST=mysql.dev
-      - NETWORK_ACCESS=internal
   php5:
     build: ./php5
     ports:
@@ -42,7 +29,7 @@ services:
     volumes:
       - ./php5/src:/var/www/html
     environment:
-      - VIRTUAL_HOST=site1.dev
+      - VIRTUAL_HOST=site1.test
       - NETWORK_ACCESS=internal
   php7:
     build: ./php7
@@ -51,12 +38,12 @@ services:
     volumes:
       - ./php7/src:/var/www/html
     environment:
-      - VIRTUAL_HOST=site2.dev,site3.dev
+      - VIRTUAL_HOST=site2.test,site3.test
       - NETWORK_ACCESS=internal
   pma:
     image: phpmyadmin/phpmyadmin:latest
     links:
-      - mysql:db
+      - mariadb:db
     ports:
       - 8000:80
     environment:
@@ -76,14 +63,15 @@ services:
   mariadb:
     build: ./mariadb
     ports:
-      - 3306:3306
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - NETWORK_ACCESS=internal
+      - 3305:3306
     volumes:
       - ./mariadb/data/persistent:/var/lib/mysql
       - ./mariadb/data/init:/docker-entrypoint-initdb.d
       - ./mariadb/log:/var/log/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - VIRTUAL_HOST=mariadb.test
+      - NETWORK_ACCESS=internal
 networks:
   default:
     external:
