@@ -2,7 +2,7 @@ module.exports = {
   apps : [
     {
       name      : 'LDAP server',
-      script    : 'serverLDAP.js'
+      script    : 'server.js'
     }
   ],
   deploy : {
