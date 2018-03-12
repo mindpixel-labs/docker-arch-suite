@@ -1,0 +1,10 @@
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sample` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `sample`;
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(16) NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=XtraDB DEFAULT CHARSET=utf8;
