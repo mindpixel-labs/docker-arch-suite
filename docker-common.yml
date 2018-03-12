@@ -52,6 +52,7 @@ services:
       - ./php7.1/src:/var/www/html
     environment:
       - VIRTUAL_HOST=site2.dev,site3.dev
+      - NETWORK_ACCESS=internal
   apache-python3:
     build: ./apache-python3
     ports:
