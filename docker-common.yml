@@ -1,11 +1,12 @@
 version: '3'
 services:
   redis:
-    image: redis:3.0.7
+    image: redis:3.2
     ports:
       - 6379
     environment:
       - VIRTUAL_HOST=redis.dev
+      - NETWORK_ACCESS=internal
   ldap:
     build: ./ldap
     ports:
