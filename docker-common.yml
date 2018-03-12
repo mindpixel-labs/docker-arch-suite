@@ -6,6 +6,15 @@ services:
       - 6379
     environment:
       - VIRTUAL_HOST=redis.dev
+  ldap:
+    build: ./ldap
+    ports:
+      - 1390:1389
+    volumes:
+      - ./ldap/app:/home/node/app
+    environment:
+      - VIRTUAL_HOST=ldap.localhost
+      - NETWORK_ACCESS=internal
   mysql:
     image: mysql:5.7
     ports:
