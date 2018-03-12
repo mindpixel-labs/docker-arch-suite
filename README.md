@@ -1,4 +1,8 @@
-# docker-multiple-sites
+# docker-arch-suite
+
+Containers are under development and soon will be based only on Arch Linux.
+
+--
 
 Firstly add following lines to /etc/hosts for friendly urls
 
