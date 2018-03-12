@@ -3,4 +3,4 @@
 # Except this file
 !.gitignore
 # Except sample sites
-!site1
+!site1/*

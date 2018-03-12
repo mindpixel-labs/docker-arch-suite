@@ -1,0 +1,7 @@
+version: '2'
+services:
+  site2:
+    image: tianon/true #minimal image
+    depends_on:
+      - php7
+      - mysql
