@@ -83,6 +83,7 @@ services:
     volumes:
       - ./mariadb/data/persistent:/var/lib/mysql
       - ./mariadb/data/init:/docker-entrypoint-initdb.d
+      - ./mariadb/log:/var/log/mysql
 networks:
   default:
     external:
