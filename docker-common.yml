@@ -17,6 +17,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=secretpass
       - VIRTUAL_HOST=mysql.dev
+      - NETWORK_ACCESS=internal
   php5.6:
     build: ./php5.6
     ports:
@@ -25,6 +26,7 @@ services:
       - ./php5.6/src:/var/www/html
     environment:
       - VIRTUAL_HOST=site1.dev
+      - NETWORK_ACCESS=internal
   php7.1:
     build: ./php7.1
     ports:

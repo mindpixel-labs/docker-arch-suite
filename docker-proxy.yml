@@ -8,7 +8,7 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx/my_proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro
-
+      - ./nginx/network_internal.conf:/etc/nginx/network_internal.conf:ro
 networks:
   default:
     external:
