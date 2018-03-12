@@ -53,6 +53,16 @@ services:
     environment:
       - VIRTUAL_HOST=site2.dev,site3.dev
       - NETWORK_ACCESS=internal
+  pma:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - mysql:db
+    ports:
+      - 8000:80
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - VIRTUAL_HOST=pma.localhost
+      - NETWORK_ACCESS=internal
   apache-python3:
     build: ./apache-python3
     ports:
