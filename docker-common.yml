@@ -24,6 +24,7 @@ services:
       - ./mysql/data/persistent:/var/lib/mysql
       - ./mysql/data/init:/docker-entrypoint-initdb.d
       - ./mysql/conf.d:/etc/mysql/conf.d
+      - ./mysql/log:/var/log/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=secretpass
       - VIRTUAL_HOST=mysql.dev
