@@ -45,6 +45,16 @@ services:
       - ./php7.1/src:/var/www/html
     environment:
       - VIRTUAL_HOST=site2.dev,site3.dev
+  apache-python3:
+    build: ./apache-python3
+    ports:
+      - 8001:80
+    volumes:
+      - ./apache-python3/sites:/var/www/html
+      - ./apache-python3/sites-available:/etc/apache2/sites-available
+    environment:
+      - VIRTUAL_HOST=casino.test
+      - NETWORK_ACCESS=internal
 networks:
   default:
     external:
