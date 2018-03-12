@@ -7,6 +7,12 @@ services:
     environment:
       - VIRTUAL_HOST=redis.dev
       - NETWORK_ACCESS=internal
+  mongodb:
+    image: mongo:3.6-jessie
+    ports:
+      - 27016:27017
+    environment:
+      - NETWORK_ACCESS=internal
   ldap:
     build: ./ldap
     ports:
