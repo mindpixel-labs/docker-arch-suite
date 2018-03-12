@@ -24,3 +24,11 @@ COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 # Fix ServerName warning
 ADD ./conf-available /etc/apache2/conf-available/
 RUN a2enconf servername
+##########
+# Xdebug #
+##########
+
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
+EXPOSE 9000
+
