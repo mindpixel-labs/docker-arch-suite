@@ -18,6 +18,9 @@ RUN /a2ensites.sh && rm /a2ensites.sh
 COPY install-composer.sh /install-composer.sh
 RUN /install-composer.sh && rm /install-composer.sh
 
+# Add custom php.ini
+COPY php.ini /usr/local/etc/php/conf.d/custom.ini
+
 # Fix ServerName warning
 ADD ./conf-available /etc/apache2/conf-available/
 RUN a2enconf servername
