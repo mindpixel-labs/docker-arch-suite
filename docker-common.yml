@@ -8,7 +8,7 @@ services:
       - VIRTUAL_HOST=redis.test
       - NETWORK_ACCESS=internal
   mongodb:
-    image: mongo:3.6-jessie
+    build: ./mongodb
     ports:
       - 27016:27017
     environment:
