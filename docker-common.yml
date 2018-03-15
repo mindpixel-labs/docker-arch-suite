@@ -40,8 +40,8 @@ services:
     environment:
       - VIRTUAL_HOST=site2.test,site3.test
       - NETWORK_ACCESS=internal
-  pma:
-    image: phpmyadmin/phpmyadmin:latest
+  phpmyadmin:
+    build: ./phpmyadmin
     links:
       - mariadb:db
     ports:
