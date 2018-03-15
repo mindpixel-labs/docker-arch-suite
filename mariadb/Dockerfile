@@ -17,4 +17,4 @@ COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 3306
-CMD ["mysqld_safe","--datadir=/var/lib/mysql"]
+CMD ["mysqld","--datadir=/var/lib/mysql"]
