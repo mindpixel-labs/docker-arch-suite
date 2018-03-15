@@ -72,6 +72,15 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - VIRTUAL_HOST=mariadb.test
       - NETWORK_ACCESS=internal
+  crossbar:
+    build: ./crossbar
+    ports:
+      - 8081:8080
+    volumes:
+      - ./crossbar/node:/node
+    environment:
+      - VIRTUAL_HOST=crossbar.test
+      - NETWORK_ACCESS=internal
 networks:
   default:
     external:
