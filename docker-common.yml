@@ -65,6 +65,7 @@ services:
       - NETWORK_ACCESS=internal
   mariadb:
     build: ./mariadb
+    user: ${UID:-1000}:${GID:-100}
     ports:
       - 3305:3306
     volumes:
