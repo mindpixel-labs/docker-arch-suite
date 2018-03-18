@@ -2,6 +2,10 @@
 
 set -e
 
+# UID/GID map to unknown user/group, $HOME=/ (the default when no home directory is defined)
+eval $( fixuid )
+# UID/GID now match user/group, $HOME has been set to user's home directory
+
 # first arg is `-f` or `--some-option`
 # or first arg is `something.conf`
 if [ "${1#-}" != "$1" ] || [ "${1%.conf}" != "$1" ]; then

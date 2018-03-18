@@ -2,11 +2,14 @@ version: '3'
 services:
   redis:
     build: ./redis
+    user: ${UID:-1000}:${GID:-100}
     ports:
       - 6380:6379
     environment:
       - VIRTUAL_HOST=redis.test
       - NETWORK_ACCESS=internal
+    volumes:
+      - ./redis/data:/data
   mongodb:
     build: ./mongodb
     ports:
