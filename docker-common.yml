@@ -45,10 +45,11 @@ services:
       - NETWORK_ACCESS=internal
   phpmyadmin:
     build: ./phpmyadmin
+    user: ${UID:-1000}:${GID:-100}
     links:
       - mariadb:db
     ports:
-      - 8000:80
+      - 8000:8123
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - VIRTUAL_HOST=pma.test
