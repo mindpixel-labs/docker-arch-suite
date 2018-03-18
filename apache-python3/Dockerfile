@@ -19,7 +19,7 @@ RUN cp /etc/httpd/conf/extra/httpd-vhosts.conf /etc/httpd/conf/extra/httpd-vhost
 VOLUME /etc/apache2/sites-available/
 
 RUN pacman -S --noconfirm libmariadbclient
-RUN pip install Django MySQL-python
+RUN pip install Django mysqlclient
 
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]

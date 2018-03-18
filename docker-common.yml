@@ -20,7 +20,7 @@ services:
     volumes:
       - ./ldap/app:/home/node/app
     environment:
-      - VIRTUAL_HOST=ldap.localhost
+      - VIRTUAL_HOST=ldap.test
       - NETWORK_ACCESS=internal
   php5:
     build: ./php5
@@ -48,7 +48,7 @@ services:
       - 8000:80
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - VIRTUAL_HOST=pma.localhost
+      - VIRTUAL_HOST=pma.test
       - NETWORK_ACCESS=internal
   apache-python3:
     build: ./apache-python3

@@ -1,6 +1,6 @@
 # docker-arch-suite
 
-Containers are under development and soon will be based only on Arch Linux.
+Service-oriented suite with all containers based on one Arch Linux.
 
 --
 
