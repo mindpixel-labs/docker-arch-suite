@@ -28,6 +28,7 @@ RUN crossbar version
 # add user and group
 RUN groupadd -r -g 242 crossbar \
     && useradd -r -u 242 -M -g crossbar -c "Crossbar.io Service" crossbar
+RUN mkdir /node && chown crossbar:crossbar /node
 
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
