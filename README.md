@@ -41,3 +41,7 @@ Sites are accessible at following urls:
  - site 2 -> http://site2.test
  - site 3 -> http://site3.test
 
+## Fix permissions
+
+Set .env variables according to result of `id -u` and `id -g`
+
