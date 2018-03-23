@@ -41,8 +41,12 @@ Sites are accessible at following urls:
  - site 2 -> http://site2.test
  - site 3 -> http://site3.test
 
-## Permissions (Author's story)
+## Permissions
+
+### Fixing
+
+Set .env variables according to result of `id -u` and `id -g`.
+
+### Story
 
 Handling permissions with docker shared volumes is quite complicated (see https://github.com/moby/moby/issues/7198). I was trying different approaches: namespaces, mounting /etc/password and few others ways. Unfortunately all of them was primitive workarounds which did not meet base requirements. But finally I found a good one! [fixuid](https://github.com/boxboat/fixuid/tree/master/docker) comes to rescue and solves all problems without complicated configuration.
-
-With time all services will be updated accordingly in order to use fixuid.

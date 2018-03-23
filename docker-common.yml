@@ -2,11 +2,14 @@ version: '3'
 services:
   redis:
     build: ./redis
+    user: ${DEV_UID:-1000}:${DEV_GID:-100}
     ports:
       - 6380:6379
     environment:
       - VIRTUAL_HOST=redis.test
       - NETWORK_ACCESS=internal
+    volumes:
+      - ./redis/data:/data
   mongodb:
     build: ./mongodb
     ports:
@@ -42,18 +45,21 @@ services:
       - NETWORK_ACCESS=internal
   phpmyadmin:
     build: ./phpmyadmin
+    user: ${DEV_UID:-1000}:${DEV_GID:-100}
     links:
       - mariadb:db
     ports:
-      - 8000:80
+      - 8000:8123
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - VIRTUAL_HOST=pma.test
       - NETWORK_ACCESS=internal
   apache-python3:
     build: ./apache-python3
+    user: ${DEV_UID:-1000}:${DEV_GID:-100}
     ports:
       - 8001:80
+      - 8002:443
     volumes:
       - ./apache-python3/sites:/var/www/html
       - ./apache-python3/sites-available:/etc/apache2/sites-available
@@ -62,6 +68,7 @@ services:
       - NETWORK_ACCESS=internal
   mariadb:
     build: ./mariadb
+    user: ${DEV_UID:-1000}:${DEV_GID:-100}
     ports:
       - 3305:3306
     volumes:
@@ -74,6 +81,7 @@ services:
       - NETWORK_ACCESS=internal
   crossbar:
     build: ./crossbar
+    user: ${DEV_UID:-1000}:${DEV_GID:-100}
     ports:
       - 8081:8080
     volumes:

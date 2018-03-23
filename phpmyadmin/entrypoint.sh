@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# UID/GID map to unknown user/group, $HOME=/ (the default when no home directory is defined)
+eval $( fixuid )
+# UID/GID now match user/group, $HOME has been set to user's home directory
+
 if [ ! -f /etc/phpmyadmin/config.secret.inc.php ] ; then
     cat > /etc/phpmyadmin/config.secret.inc.php <<EOT
 <?php
