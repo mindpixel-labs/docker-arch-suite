@@ -6,7 +6,7 @@ RUN pacman -S --noconfirm python python-pip wget
 
 # Add user and group
 RUN groupadd -r -g 242 crossbar \
-    && useradd -r -u 242 -M -g crossbar -c "Crossbar.io Service" crossbar
+    && useradd -r -u 242 -m -g crossbar -c "Crossbar.io Service" crossbar
 
 # Install su-exec to get down from root
 RUN wget https://raw.githubusercontent.com/ncopa/su-exec/master/su-exec.c \
