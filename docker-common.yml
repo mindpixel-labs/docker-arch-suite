@@ -82,6 +82,7 @@ services:
   crossbar:
     build: ./crossbar
     user: ${DEV_UID:-1000}:${DEV_GID:-100}
+    tty: true
     ports:
       - 8081:8080
     volumes:
