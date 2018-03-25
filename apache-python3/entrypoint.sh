@@ -4,6 +4,12 @@
 eval $( fixuid )
 # UID/GID now match user/group, $HOME has been set to user's home directory
 
+# install additional packages
+if [[ -n "${PACMAN_PACKAGES}" ]]; then
+    su-exec root pacman -Syy
+    su-exec root pacman -S --noconfirm "${PACMAN_PACKAGES}"
+fi
+
 # Truncate current vhost file
 > /etc/httpd/conf/extra/httpd-vhosts.conf
 

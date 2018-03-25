@@ -66,6 +66,7 @@ services:
     environment:
       - VIRTUAL_HOST=casino.test
       - NETWORK_ACCESS=internal
+      - PACMAN_PACKAGES=${DAS_APACHEPYTHON3_PACMAN_PACKAGES}
   mariadb:
     build: ./mariadb
     user: ${DEV_UID:-1000}:${DEV_GID:-100}
