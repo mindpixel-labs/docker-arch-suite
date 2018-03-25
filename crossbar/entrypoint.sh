@@ -5,8 +5,8 @@ eval $( fixuid )
 # UID/GID now match user/group, $HOME has been set to user's home directory
 
 # install additional packages
-if [[ -n "${DAS_CROSSBAR_PIP_PACKAGES}" ]]; then
-    pip install --user "${DAS_CROSSBAR_PIP_PACKAGES}"
+if [[ -n "${PIP_PACKAGES}" ]]; then
+    pip install --user "${PIP_PACKAGES}"
 fi
 
 if [ "$1" = 'crossbar' -a "$(id -u)" = '0' ]; then

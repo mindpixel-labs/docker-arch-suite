@@ -90,7 +90,7 @@ services:
     environment:
       - VIRTUAL_HOST=crossbar.test
       - NETWORK_ACCESS=internal
-      - DAS_CROSSBAR_PIP_PACKAGES=${DAS_CROSSBAR_PIP_PACKAGES}
+      - PIP_PACKAGES=${DAS_CROSSBAR_PIP_PACKAGES}
 networks:
   default:
     external:
