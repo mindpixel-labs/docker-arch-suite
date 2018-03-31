@@ -11,6 +11,7 @@ RUN groupadd -r -g 242 crossbar \
 # Install su-exec to get down from root
 RUN wget https://raw.githubusercontent.com/ncopa/su-exec/master/su-exec.c \
     && gcc -o /usr/local/bin/su-exec su-exec.c \
+    && chmod 4755 /usr/local/bin/su-exec \
     && rm su-exec.c
 
 # Install fixuid (https://github.com/boxboat/fixuid) to map host user id with container 'crossbar' user id (used in entrypoint.sh)

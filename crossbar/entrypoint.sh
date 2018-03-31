@@ -6,7 +6,7 @@ eval $( fixuid )
 
 # install additional packages
 if [[ -n "${PIP_PACKAGES}" ]]; then
-    pip install --user "${PIP_PACKAGES}"
+    su-exec root pip install ${PIP_PACKAGES}
 fi
 
 if [ "$1" = 'crossbar' -a "$(id -u)" = '0' ]; then
