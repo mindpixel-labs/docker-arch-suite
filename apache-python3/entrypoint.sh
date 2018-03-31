@@ -4,10 +4,15 @@
 eval $( fixuid )
 # UID/GID now match user/group, $HOME has been set to user's home directory
 
-# install additional packages
+# install additional pacman packages
 if [[ -n "${PACMAN_PACKAGES}" ]]; then
     su-exec root pacman -Syy
-    su-exec root pacman -S --noconfirm "${PACMAN_PACKAGES}"
+    su-exec root pacman -S --noconfirm ${PACMAN_PACKAGES}
+fi
+
+# install additional pip packages
+if [[ -n "${PIP_PACKAGES}" ]]; then
+    su-exec root pip install ${PIP_PACKAGES}
 fi
 
 # Truncate current vhost file
